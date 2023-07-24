@@ -26,30 +26,51 @@ function App() {
     setIsFormComplete(true);
   }
 
+  function resetForm() {
+    setCardholderName(initialInputState);
+    setCardNumber(initialInputState);
+    setExpirationMonth(initialInputState);
+    setExpirationYear(initialInputState);
+    setCvc(initialInputState);
+  }
+
   return (
     <div className="page-container">
       <div className="image-container">
         <img className="mobile-background" src={backgroundImageMobile} alt="" />
-        <img className="desktop-background" src={backgroundImageDesktop} alt="" />
+        <img
+          className="desktop-background"
+          src={backgroundImageDesktop}
+          alt=""
+        />
         <div className="card-front">
           <img src={cardFrontImage} alt="" />
           <div className="card-info">
             <img src={cardLogo} alt="" />
-            <span className="card-number">{cardNumber.value || '0000 0000 0000 0000'}</span>
-            <span>{cardholderName.value || 'John Doe'}</span>
-            <span>{expirationMonth.value || '00'}/{expirationYear.value || '00'}</span>
+            <span className="card-number">
+              {cardNumber.value || "0000 0000 0000 0000"}
+            </span>
+            <span>{cardholderName.value || "John Doe"}</span>
+            <span>
+              {expirationMonth.value || "00"}/{expirationYear.value || "00"}
+            </span>
           </div>
         </div>
         <div className="card-back">
           <img src={cardBackImage} alt="" />
           <div className="card-info">
-            <span className="card-cvc">{cvc.value || '000'}</span>
+            <span className="card-cvc">{cvc.value || "000"}</span>
           </div>
         </div>
       </div>
       <main className="main-content">
         {isFormComplete ? (
-          <Success />
+          <Success
+            onContinue={() => {
+              setIsFormComplete(false);
+              resetForm();
+            }}
+          />
         ) : (
           <Form
             cardholderName={cardholderName}
