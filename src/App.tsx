@@ -87,6 +87,7 @@ function App() {
           />
         )}
       </main>
+      <footer className="footer">Desenvolvido por Sergio Manica</footer>
     </div>
   );
 }

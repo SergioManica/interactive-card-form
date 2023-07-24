@@ -171,6 +171,17 @@
   line-height: 1;
 }
 
+.footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: black;
+  color: white;
+  font-size: 0.725rem;
+  display: flex;
+  justify-content: center;
+}
+
 @media not all and (min-width: 700px) {
 
   .page-container {
@@ -272,4 +283,5 @@
   .card-number{
     font-size: clamp(1.25rem,3vh,1.75rem);
   }
+
 }
